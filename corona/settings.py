@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # --
     'channels',
+    'naomi',
     # --
     'corona',
 ]
@@ -130,3 +131,9 @@ STATIC_URL = '/static/'
 # Sites
 
 SITE_ID = 1
+
+
+# Email
+
+EMAIL_BACKEND = 'naomi.mail.backends.naomi.NaomiBackend'
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'tmp')
