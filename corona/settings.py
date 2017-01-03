@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'channels',
     'django_rq',
     'naomi',
+    'rest_framework',
     # --
     'corona',
 ]
