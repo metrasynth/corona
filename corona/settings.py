@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # --
     'channels',
+    'django_rq',
     'naomi',
     # --
     'corona',
@@ -142,3 +143,13 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'naomi.mail.backends.naomi.NaomiBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'tmp')
+
+
+# Queues
+
+RQ_QUEUES = {
+    'render': {
+        'URL': 'redis://localhost:6379/0',
+        'DEFAULT_TIMEOUT': 60 * 6,
+    },
+}

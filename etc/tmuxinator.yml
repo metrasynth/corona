@@ -1,0 +1,17 @@
+# ~/.tmuxinator/corona.yml
+
+name: corona
+root: ~/
+socket_name: corona
+pre_window: workon corona
+
+windows:
+  - shells:
+      layout: even-vertical
+      panes:
+        -
+        -
+  - servers:
+      panes:
+        - ./manage.py runserver
+        - ./manage.py rqworker render

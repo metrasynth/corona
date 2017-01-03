@@ -18,5 +18,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^django-rq/', include('django_rq.urls')),
+]
+
+urlpatterns += [
     url(r'', include('django.contrib.flatpages.urls')),
 ]
