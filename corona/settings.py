@@ -46,6 +46,11 @@ INSTALLED_APPS = [
     'corona',
 ]
 
+if DEBUG:
+    from django.core.management import BaseCommand
+    INSTALLED_APPS.insert(0, 'werkzeug_debugger_runserver')
+    BaseCommand.option_list = ()
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
