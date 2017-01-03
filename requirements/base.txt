@@ -1,6 +1,6 @@
-channels >= 0.17.3
-django >= 1.10.4
-django-naomi >= 0.8
+channels == 0.17.3
+django == 1.10.4
+django-naomi == 0.8
 django-rq == 0.9.4
 djangorestframework == 3.5.3
 Markdown == 2.6.7
