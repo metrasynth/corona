@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^django-rq/', include('django_rq.urls')),
+    url(r'', include('corona.catalog.urls')),
 ]
 
 urlpatterns += [

@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'rest_framework',
     # --
     'corona',
+    'corona.catalog',
+    'corona.render',
 ]
 
 if DEBUG:
@@ -153,4 +155,13 @@ RQ_QUEUES = {
         'URL': 'redis://localhost:6379/0',
         'DEFAULT_TIMEOUT': 60 * 6,
     },
+}
+
+
+# API
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
 }
