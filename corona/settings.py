@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'rest_framework',
     # --
     'corona',
+    'corona.catalog',
+    'corona.render',
 ]
 
 if DEBUG:
@@ -149,8 +151,28 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'tmp')
 # Queues
 
 RQ_QUEUES = {
+    'fetch': {
+        'URL': 'redis://localhost:6379/0',
+        'DEFAULT_TIMEOUT': 60 * 3,
+    },
     'render': {
         'URL': 'redis://localhost:6379/0',
         'DEFAULT_TIMEOUT': 60 * 6,
     },
 }
+
+
+# API
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+}
+
+
+# STORAGE
+
+CATALOG_CONTENT_MAX_SIZE = 20 * 1024 * 1024
+CATALOG_CONTENT_STORE = os.path.join(BASE_DIR, 'tmp', 'catalog', 'content')
+os.makedirs(CATALOG_CONTENT_STORE, exist_ok=True)

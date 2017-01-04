@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Latest fetch</h2>
+
+    <dl>
+    <dt>Created at</dt>
+    <dd>{{ fetch.created_at }}</dd>
+    <dt>Location</dt>
+    <dd>{{ fetch.location.url }}</dd>
+    <dt>State</dt>
+    <dd>{{ fetch.state }}</dd>
+    {% if fetch.rejection_reason %}
+        <dt>Rejection Reason</dt>
+        <dd>{{ fetch.rejection_reason }}</dd>
+    {% endif %}
+    {% if fetch.content.hash %}
+        <dt>Content Hash</dt>
+        <dd><a href="{% url 'content_info' digest=fetch.content.hash %}">{{ fetch.content.hash }}</a></dd>
+    {% endif %}
+    </dl>
+{% endblock %}

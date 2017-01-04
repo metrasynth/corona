@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Content: <i>{{ content.hash }}</i></h2>
+
+    <dl>
+    <dt>Created at</dt>
+    <dd>{{ content.created_at }}</dd>
+    <dt>Valid</dt>
+    <dd>{{ content.valid }}</dd>
+    <dt>File Type</dt>
+    <dd>{{ content.file_type }}</dd>
+    </dl>
+{% endblock %}
